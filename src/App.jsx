@@ -1,10 +1,10 @@
 import React from 'react';
-import{
+import{ 
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
-  Redirect
+  Redirect,
+  Link
 } from "react-router-dom";
 
 
