@@ -31,7 +31,7 @@ class Home extends React.Component {
       }
       return (
         <div>
-          {this.state.jsonData &&  <Table jData={this.state.jsonData}/>} 
+          {this.state.jsonData &&  <Table jData={this.state.jsonData} path="/company"/>} 
         </div>
       )};
 }

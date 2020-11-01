@@ -1,14 +1,14 @@
 import React from 'react';
-class Team extends React.Component {
+class Company extends React.Component {
     constructor(props){
       super(props)
     }
     
     render() {
       return (
-                <h1>Team Page</h1>
+                <h1>Company Page</h1>
       );
     }  
   }
 
-  export default Team;
+  export default Company;

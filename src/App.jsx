@@ -8,7 +8,7 @@ import{
 } from "react-router-dom";
 
 
-import Team from './components/team/Team';
+import Company from './components/company/Company';
 import About from "./components/about/About";
 import Home from "./components/home/Home";
 import Page404 from "./components/Page404";
@@ -27,7 +27,7 @@ class App extends React.Component {
         <div className="navbar">
           <ul>
             <li className = "active"> <Link to= "/Home" >Home</Link> </li>
-            <li> <Link to= "/Team"  >Team</Link> </li>
+            <li> <Link to= "/Company"  >Company</Link> </li>
             <li> <Link to= "/About" >About</Link> </li>
 
           </ul>
@@ -36,7 +36,7 @@ class App extends React.Component {
         <Switch>   
           {/* <Redirect exact from="/" ></Redirect>   */}
           <Redirect exact from='/' to='/Home' />
-          <Route path="/Team">  <Team /> </Route>
+          <Route path="/Company">  <Company /> </Route>
           <Route path="/about"> <About /> </Route>
           <Route path="/home"> <Home /> </Route>
           <Route path="/display/:whatToPass" render={({ match }) => <DisplayInfo match={match} />} />

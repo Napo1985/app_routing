@@ -13,7 +13,7 @@ class Table extends React.Component {
         const renderData = () => {
             this.props.jData.map((el)=> {
 
-                htmlTableElement.push(<Card key ={"card-"+el.id} CardData= {el}/>) ;
+                htmlTableElement.push(<Card key ={"card-"+el.id} CardData= {el} path={this.props.path}/>) ;
                 // return console.log(el);
 
             })
