@@ -1,0 +1,28 @@
+.card{
+    display: inline-block;
+    position:relative;   
+    overflow: hidden;
+    border: solid black 1px;
+   
+    width: 250px;
+    height: 200px;
+    margin: 20px;
+    background-color: lightcoral;
+
+}
+
+.card-btn{
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+}
+
+.card-text
+{
+    text-align: center;
+}
+
+.card-text div
+{
+    text-align: left;
+}

@@ -8,13 +8,13 @@ import{
 } from "react-router-dom";
 
 
-import Team from './Team';
-import About from "./About";
-import Home from "./Home";
-import Page404 from "./Page404";
+import Team from './components/team/Team';
+import About from "./components/about/About";
+import Home from "./components/home/Home";
+import Page404 from "./components/Page404";
 
 import './App.css';
-import DisplayInfo from './DisplayInfo';
+import DisplayInfo from './components/DisplayInfo';
 
 class App extends React.Component {
   constructor(props){
