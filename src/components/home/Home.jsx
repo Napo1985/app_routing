@@ -18,10 +18,16 @@ class Home extends React.Component {
     // }
 
     async componentDidMount() {
-      const fetchData = await Axios.get("./MOCK_DATA20.json");
+      if ( localStorage.getItem('jsonFile') === null) {
+      const fetchData = await Axios.get("./MOCK_DATA20.json"); // change to local storage 
       const data = fetchData.data;
-      // console.log(data);
       this.setState({ jsonData: data });
+      }
+      else
+      {
+        var jsonObj = JSON.parse(localStorage.getItem('jsonFile'));
+        this.setState({ jsonData: jsonObj });
+      }
     }
     
     render() {

@@ -24,14 +24,10 @@ class Table extends React.Component {
         return (
             <div>
                 <div>
-                    
+                    place holder
                 </div>
                 <div>
-                    <table>
-                        <tbody>
-                            {htmlTableElement}
-                        </tbody>
-                    </table>
+                    {htmlTableElement}
                 </div>
   
             </div>

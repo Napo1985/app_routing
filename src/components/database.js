@@ -52,10 +52,16 @@ function removeData(collection, predicate) {
     localStorage.database = JSON.stringify(db);
 }
 
+// clear the local storage
+function clearDB() {
+    return localStorage.clear();
+}
+
 export default {
     addValue,
     getCollection,
     getValues,
     removeValue,
-    removeData
+    removeData,
+    clearDB
 };
