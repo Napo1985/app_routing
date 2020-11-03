@@ -3,10 +3,10 @@ import './Page404.css';
 
 
 class Page404 extends React.Component {
-    constructor(props){
-      super(props)
+    // constructor(props){
+    //   super(props)
       
-    }
+    // }
     
     render() {
       <script src="https://kit.fontawesome.com/4b9ba14b0f.js" crossorigin="anonymous"></script>

@@ -1,20 +1,26 @@
 import React from 'react';
-import DB from '../database'
+import CompanyAppointment from './CompanyAppointment';
+
 class Company extends React.Component {
     constructor(props){
       super(props)
     }
     
     render() {
-      console.log(this.props.match.params);
-      let x = this.props.match.params.companyName.toLowerCase();
-      let y = localStorage.getItem(x);
-      let readableJsonData = JSON.parse(y); 
-      // let y = DB.getCollection(x);
+      // console.log(this.props.match.params);
+      let localStorageKey = this.props.match.params.companyName.toLowerCase();
+      let readableJsonData = JSON.parse(localStorage.getItem(localStorageKey)); 
       console.log(readableJsonData); 
       return (
+        <div>
+          <div>
+              <b>{localStorageKey}</b>
+          </div>
+          <div>
+            <CompanyAppointment companyName = {localStorageKey} timeTable = {readableJsonData}/> 
+          </div>
+        </div>
 
-                <div> dd</div>
       );
     }  
   }

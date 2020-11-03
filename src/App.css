@@ -66,3 +66,18 @@ li {
 }
 
 
+#sign{
+  float: right;
+
+}
+.userLogin{
+  visibility: visible;
+  float: right;
+  position: static;
+}
+.userLogout{
+  visibility: hidden;
+  float: right;
+  position: static;
+}
+

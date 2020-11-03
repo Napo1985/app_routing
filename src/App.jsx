@@ -13,19 +13,45 @@ import About from "./components/about/About";
 import Home from "./components/home/Home";
 import Page404 from "./components/Page404";
 import DisplayInfo from './components/DisplayInfo';
+import Login from "./Login";
 import './App.css';
-import DB from './components/database';
+// import DB from './components/database';
 
 class App extends React.Component {
   constructor(props){
-    super(props)
+    super(props)   
+    this.state = {userName:"", loginInput:"", signIn:false};
+    this.createTimeTable = this.createTimeTable.bind(this);
+    this.signIn = this.signIn.bind(this);
+    this.signOut = this.signOut.bind(this);
+    this.inputChanged = this.inputChanged.bind(this);
     
   }
 
-  createTimeTable(item)
+  inputChanged(userName,btn)
   {
-    let result = {}; // Results will go here
+    btn.disabled = userName !== "" ? false: true;
+    this.setState({loginInput:userName});
+  }
 
+  signIn(userName){
+      
+      let x = document.getElementsByClassName("userLogin");
+      x[0].style.visibility = "hidden";
+      x[1].style.visibility = "hidden";
+      let y = document.getElementsByClassName("userLogout");
+      y[0].style.visibility = "visible";
+  }
+
+  signOut(userName){
+    let x = document.getElementsByClassName("userLogin");
+    x[0].style.visibility = "visible";
+    x[1].style.visibility = "visible";
+    let y = document.getElementsByClassName("userLogout");
+    y[0].style.visibility = "hidden";}
+
+  createTimeTable(item){
+    let result = {}; // Results will go here
     // Loop from current hour 9 to hour 17
     for(let i = 9; i < 17; i++){
       let hour = i+":00"; 
@@ -33,6 +59,7 @@ class App extends React.Component {
     }
     return result; 
   }
+
 
   async componentDidMount() {
     // DB.clearDB();
@@ -48,13 +75,9 @@ class App extends React.Component {
       if ((localStorage.getItem(str) === null))
       {  
         let y = this.createTimeTable();
-
         localStorage.setItem(str,JSON.stringify(y));
       }
     }
-
-
-
   }
   
   render() {
@@ -65,6 +88,15 @@ class App extends React.Component {
             <li className = "active"> <Link to= "/Home" >Home</Link> </li>
             {/* <li> <Link to= "/Company"  >Company</Link> </li> */}
             <li> <Link to= "/About" >About</Link> </li>
+            {/* <li> <Link to= "/login" >Login</Link> </li> */}
+            <li id ="sign">
+                <input id = "loginName" className = "userLogin" type="text" placeholder="Username" name="username" onChange = {() => this.inputChanged(document.getElementById("loginName").value,document.getElementById("loginBtn"))}/>
+                <button id = "loginBtn" className = "userLogin" onClick = {() => this.signIn(document.getElementById("loginName").value) } >Login</button>
+                <div className = "userLogout" onClick = {() => this.signOut(document.getElementById("loginName").value)  } > Sign Out</div>
+            </li>
+            <li >
+             
+            </li>
           </ul>
         </div>
 
@@ -75,12 +107,13 @@ class App extends React.Component {
           <Route path="/about"> <About /> </Route>
           <Route path="/home"> <Home /> </Route>
           <Route path="/display/:whatToPass" render={({ match }) => <DisplayInfo match={match} />} />
-          
+          <Route exact path="/login"> <Login /></Route>
           <Redirect exact from='/' to='/Home' />
           <Route path="*"> <Page404 /> </Route>
           
         </Switch>
       </Router>
+      
     );
   }  
 }

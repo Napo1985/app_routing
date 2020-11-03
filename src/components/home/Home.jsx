@@ -1,8 +1,6 @@
 import React from 'react';
-import DB from '../database.js';
 import Axios from 'axios';
 import Table from "./Table";
-
 
 class Home extends React.Component {
     constructor(props){
@@ -10,12 +8,6 @@ class Home extends React.Component {
       this.state = {jsonData: null
       };
     }
-    
-    // async componentDidMount(){
-  //    const fetchData = wait Axios.get();
-    //  const data = fetchData.data.value;
-    //   this.setState({jsonData : x});
-    // }
 
     async componentDidMount() {
       if ( localStorage.getItem('jsonFile') === null) {
@@ -41,5 +33,4 @@ class Home extends React.Component {
         </div>
       )};
 }
-
 export default Home;
