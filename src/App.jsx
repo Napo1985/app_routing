@@ -20,7 +20,7 @@ import './App.css';
 class App extends React.Component {
   constructor(props){
     super(props)   
-    this.state = {userName:"", loginInput:"", signIn:false};
+    this.state = {user:"", loginInput:"", signIn:false};
     this.createTimeTable = this.createTimeTable.bind(this);
     this.signIn = this.signIn.bind(this);
     this.signOut = this.signOut.bind(this);
@@ -35,15 +35,16 @@ class App extends React.Component {
   }
 
   signIn(userName){
-      
+    
       let x = document.getElementsByClassName("userLogin");
       x[0].style.visibility = "hidden";
       x[1].style.visibility = "hidden";
       let y = document.getElementsByClassName("userLogout");
       y[0].style.visibility = "visible";
+      this.setState({user:userName});
   }
 
-  signOut(userName){
+  signOut(){
     let x = document.getElementsByClassName("userLogin");
     x[0].style.visibility = "visible";
     x[1].style.visibility = "visible";
@@ -87,16 +88,18 @@ class App extends React.Component {
           <ul>
             <li className = "active"> <Link to= "/Home" >Home</Link> </li>
             {/* <li> <Link to= "/Company"  >Company</Link> </li> */}
-            <li> <Link to= "/About" >About</Link> </li>
+            <li> <Link to= "/About" ></Link> </li>
             {/* <li> <Link to= "/login" >Login</Link> </li> */}
-            <li id ="sign">
+            <div id ="sign">
                 <input id = "loginName" className = "userLogin" type="text" placeholder="Username" name="username" onChange = {() => this.inputChanged(document.getElementById("loginName").value,document.getElementById("loginBtn"))}/>
                 <button id = "loginBtn" className = "userLogin" onClick = {() => this.signIn(document.getElementById("loginName").value) } >Login</button>
-                <div className = "userLogout" onClick = {() => this.signOut(document.getElementById("loginName").value)  } > Sign Out</div>
-            </li>
-            <li >
-             
-            </li>
+            </div>
+            <div className = "userLogout">
+              <a>Hello {this.state.user}</a> <br/>
+              <a onClick = {() => this.signOut()  } > (Sign Out)</a>
+            </div>
+            
+            
           </ul>
         </div>
 
