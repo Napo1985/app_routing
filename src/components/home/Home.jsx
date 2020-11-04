@@ -23,13 +23,13 @@ class Home extends React.Component {
     }
     
     render() {
-      // console.log(this.state);
+      console.log(this.props);
       if (!this.state.jsonData){
         return<h1>Loading...</h1>
       }
       return (
         <div>
-          {this.state.jsonData &&  <Table jData={this.state.jsonData} path="/company"/>} 
+          {this.state.jsonData &&  <Table user = {this.props.user} jData={this.state.jsonData} path="/company"/>} 
         </div>
       )};
 }

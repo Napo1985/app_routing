@@ -11,8 +11,19 @@ class CompanyAppointment extends React.Component {
     setTime (key){
       this.props.timeTable[key] = true;
       localStorage.setItem(this.props.companyName,JSON.stringify(this.props.timeTable));
+
       this.setState({ timeTable:  this.props.timeTable });
       
+      let currentUser = localStorage.getItem("user");
+
+      if (localStorage.getItem(currentUser) === null) {
+        localStorage.setItem(currentUser,JSON.stringify([]));
+      }
+      let currentUserTable = JSON.parse(localStorage.getItem(currentUser));
+      let companyName = this.props.companyName;
+      
+      currentUserTable.push({companyName, key})
+      localStorage.setItem(currentUser,JSON.stringify(currentUserTable));
     }
 
     render() {
@@ -21,7 +32,8 @@ class CompanyAppointment extends React.Component {
       for (var key in this.props.timeTable) {
         if (this.props.timeTable[key] == false){
           let currentKey = key ;
-          htmlTableElement.push(<button  className= "setApBtn" key= {currentKey} onClick = {() => this.setTime(currentKey)} > {currentKey} </button> ) ;
+          let disabled1 = localStorage.getItem("user") === "" ||  localStorage.getItem("user") == null ? true : false;
+          htmlTableElement.push(<button disabled = {disabled1} className="setApBtn" key= {currentKey} onClick = {() => this.setTime(currentKey)} > {currentKey} </button> ) ;
         }  
         // console.log(key, this.props.timeTable[key]);
       }

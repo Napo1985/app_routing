@@ -9,13 +9,14 @@ import{
 import Axios from 'axios';
 
 import Company from './components/company/Company';
-import About from "./components/about/About";
+import Schedule from "./components/schedule/Schedule";
 import Home from "./components/home/Home";
 import Page404 from "./components/Page404";
 import DisplayInfo from './components/DisplayInfo';
 import Login from "./Login";
+import Logout from "./Logout";
 import './App.css';
-// import DB from './components/database';
+
 
 class App extends React.Component {
   constructor(props){
@@ -28,28 +29,24 @@ class App extends React.Component {
     
   }
 
-  inputChanged(userName,btn)
+  inputChanged(e)
   {
-    btn.disabled = userName !== "" ? false: true;
-    this.setState({loginInput:userName});
+    this.setState({loginInput:e.target.value});
   }
 
-  signIn(userName){
-    
-      let x = document.getElementsByClassName("userLogin");
-      x[0].style.visibility = "hidden";
-      x[1].style.visibility = "hidden";
-      let y = document.getElementsByClassName("userLogout");
-      y[0].style.visibility = "visible";
-      this.setState({user:userName});
+  signIn(){
+    if (this.state.loginInput === ""){
+      alert("user name is empty")
+      return;
+    }
+    localStorage.setItem('user',this.state.loginInput);
+    this.setState({user:this.state.loginInput,signIn:true});
   }
 
   signOut(){
-    let x = document.getElementsByClassName("userLogin");
-    x[0].style.visibility = "visible";
-    x[1].style.visibility = "visible";
-    let y = document.getElementsByClassName("userLogout");
-    y[0].style.visibility = "hidden";}
+    localStorage.setItem('user',"");
+    this.setState({user:"",signIn:false}); 
+  }
 
   createTimeTable(item){
     let result = {}; // Results will go here
@@ -63,7 +60,6 @@ class App extends React.Component {
 
 
   async componentDidMount() {
-    // DB.clearDB();
     const fetchData = await Axios.get("./MOCK_DATA20.json");
 
     const data = fetchData.data;
@@ -79,6 +75,16 @@ class App extends React.Component {
         localStorage.setItem(str,JSON.stringify(y));
       }
     }
+    const user = localStorage.getItem("user");
+    if (user)
+    {
+      this.setState({user,signIn:true}); 
+
+    }
+    else{
+      this.setState({user,signIn:false});
+    }
+
   }
   
   render() {
@@ -86,31 +92,20 @@ class App extends React.Component {
       <Router>
         <div className="navbar">
           <ul>
-            <li className = "active"> <Link to= "/Home" >Home</Link> </li>
-            {/* <li> <Link to= "/Company"  >Company</Link> </li> */}
-            <li> <Link to= "/About" ></Link> </li>
-            {/* <li> <Link to= "/login" >Login</Link> </li> */}
-            <div id ="sign">
-                <input id = "loginName" className = "userLogin" type="text" placeholder="Username" name="username" onChange = {() => this.inputChanged(document.getElementById("loginName").value,document.getElementById("loginBtn"))}/>
-                <button id = "loginBtn" className = "userLogin" onClick = {() => this.signIn(document.getElementById("loginName").value) } >Login</button>
-            </div>
-            <div className = "userLogout">
-              <a>Hello {this.state.user}</a> <br/>
-              <a onClick = {() => this.signOut()  } > (Sign Out)</a>
-            </div>
-            
-            
+            <li> <Link to= "/Home" >Home</Link> </li>
+            {this.state.signIn && <li> <Link to= "/schedule" >My schedule</Link> </li>}   
+            {!this.state.signIn ? <Login inputChanged = {this.inputChanged} signIn ={this.signIn} /> :<Logout user = {this.state.user} signOut = {this.signOut} />}   
           </ul>
         </div>
 
         <Switch>   
           {/* <Redirect exact from="/" ></Redirect>   */}
           <Redirect exact from='/' to='/Home' />
-          <Route exact path="/Company/:companyName" render={({ match }) => <Company match={match} />}/>
-          <Route path="/about"> <About /> </Route>
-          <Route path="/home"> <Home /> </Route>
+          <Route exact path="/Company/:companyName" user = {this.state.user} render={({ match }) => <Company match={match} />}/>
+          <Route path="/schedule"> <Schedule /> </Route>
+          <Route path="/home"> <Home user = {this.state.user} /> </Route>
           <Route path="/display/:whatToPass" render={({ match }) => <DisplayInfo match={match} />} />
-          <Route exact path="/login"> <Login /></Route>
+ 
           <Redirect exact from='/' to='/Home' />
           <Route path="*"> <Page404 /> </Route>
           

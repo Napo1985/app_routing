@@ -7,7 +7,7 @@ class Company extends React.Component {
     }
     
     render() {
-      // console.log(this.props.match.params);
+      console.log(this.props);
       let localStorageKey = this.props.match.params.companyName.toLowerCase();
       let readableJsonData = JSON.parse(localStorage.getItem(localStorageKey)); 
       console.log(readableJsonData); 
@@ -17,7 +17,7 @@ class Company extends React.Component {
               <b>{localStorageKey}</b>
           </div>
           <div>
-            <CompanyAppointment companyName = {localStorageKey} timeTable = {readableJsonData}/> 
+            <CompanyAppointment user = {this.props.user} companyName = {localStorageKey} timeTable = {readableJsonData}/> 
           </div>
         </div>
 

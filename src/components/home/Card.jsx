@@ -11,8 +11,7 @@ class Card extends React.Component {
     }
 
     redirectLink(event)
-    {   
-        
+    {          
         const url = this.props.path +"/" +this.props.CardData["company"].toLowerCase();
         this.props.history.push(url);       
     }

@@ -25,23 +25,4 @@ li {
 }
 
 
-#sign{
-  float: right ;
-  text-align: center;
-  padding: 20px;
-}
-.userLogin{
-  visibility: visible;
-  float: right;
-  position: static;
- 
-}
-.userLogout{
-  visibility: hidden;
-  float: none;
-  color: red;
-  display: inline-block;
-  vertical-align: middle;
-
-}
 
