@@ -28,7 +28,7 @@ class Home extends React.Component {
         return<h1>Loading...</h1>
       }
       return (
-        <div>
+        <div >
           {this.state.jsonData &&  <Table user = {this.props.user} jData={this.state.jsonData} path="/company"/>} 
         </div>
       )};

@@ -14,7 +14,7 @@ class Company extends React.Component {
       return (
         <div>
           <div>
-              <b>{localStorageKey}</b>
+              press the button to set a meeting to <b>{localStorageKey}</b>
           </div>
           <div>
             <CompanyAppointment user = {this.props.user} companyName = {localStorageKey} timeTable = {readableJsonData}/> 

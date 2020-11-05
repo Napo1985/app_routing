@@ -25,9 +25,6 @@ class Table extends React.Component {
         return (
             <div>
                 <div>
-                    place holder
-                </div>
-                <div>
                     {htmlTableElement}
                 </div>
   

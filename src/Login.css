@@ -1,11 +1,6 @@
 #sign{
-    float: right ;
+    float: center ;
     text-align: center;
-    padding: 20px;
+   padding: 10px;
   }
-  .userLogin{
-  
-    float: right;
-    position: static;
-   
-  }
+

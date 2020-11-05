@@ -38,7 +38,9 @@ class CompanyAppointment extends React.Component {
         // console.log(key, this.props.timeTable[key]);
       }
       return (
-        <div> {htmlTableElement}</div>
+        <div>
+          <div> {htmlTableElement}</div>
+        </div>
       );
     }  
   }

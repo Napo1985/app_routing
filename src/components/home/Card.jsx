@@ -15,19 +15,24 @@ class Card extends React.Component {
         const url = this.props.path +"/" +this.props.CardData["company"].toLowerCase();
         this.props.history.push(url);       
     }
-    render() {
-        let htmlCardElement = [];  
-        let htmlCardContainerElement = [];  
-        
-        htmlCardElement.push(<h2 key ={this.props.CardData["company"]} >{this.props.CardData["company"]}</h2>);
-        htmlCardElement.push(<div key ={this.props.CardData["address"]} ><b>address:</b>{this.props.CardData["address"]}</div >);
-        htmlCardElement.push(<div key ={this.props.CardData["city"]}><b>city:</b>{this.props.CardData["city"]}</div >);
-        htmlCardElement.push(<div key ={this.props.CardData["phone"]}><b>phone:</b>{this.props.CardData["phone"]}</div >);
-        htmlCardElement.push(<div key ={this.props.CardData["email"]}><b>email:</b>{this.props.CardData["email"]}</div >);
-        
-        htmlCardContainerElement.push(<div key ={this.props.CardData["id"]} className="card-text">{htmlCardElement}</div >)
-                                                                              
-        htmlCardContainerElement.push(<div  key ={this.props.CardData["id"]-1000} className="card-btn"> <button onClick = {() => this.redirectLink(this.props.CardData)} >Set appointment</button> </div >);
+    render() {   
+        let htmlFrontCardElement = [];  
+        let htmlRearCardElement = [];  
+        let htmlCardContainerElement = [];
+
+        htmlFrontCardElement.push(<h1 className="card-front-text" key ={this.props.CardData["company"]} >{this.props.CardData["company"]}</h1>);
+        htmlRearCardElement.push(<div className="card-rear-text" key ={this.props.CardData["address"]} ><b>address:</b>{this.props.CardData["address"]}</div >);
+        htmlRearCardElement.push(<div className="card-rear-text" key ={this.props.CardData["city"]}><b>city:</b>{this.props.CardData["city"]}</div >);
+        htmlRearCardElement.push(<div className="card-rear-text" key ={this.props.CardData["phone"]}><b>phone:</b>{this.props.CardData["phone"]}</div >);
+        htmlRearCardElement.push(<div className="card-rear-text" key ={this.props.CardData["email"]}><b>email:</b>{this.props.CardData["email"]}</div >);
+
+        htmlCardContainerElement.push(  <div class="flip-card" onClick = {() => this.redirectLink(this.props.CardData)}>
+                                            <div class="flip-card-inner">
+                                                <div class="flip-card-front ">{htmlFrontCardElement}</div>
+                                                <div class="flip-card-back ">{htmlRearCardElement}</div>
+                                            </div>
+                                        </div>);
+
         return (
             <div className = "card">
                 {htmlCardContainerElement}
