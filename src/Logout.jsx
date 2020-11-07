@@ -9,8 +9,8 @@ class Logout extends React.Component {
     render() {
       return (
         <div className = "userLogout">
-          <a>Hello {this.props.user}</a> <br/>
-          <a onClick = {() => this.props.signOut()  } > (Sign Out)</a>
+          <a href="!#" >Hello {this.props.user}</a> <br/>
+          <a href="!#" onClick = {() => this.props.signOut()  } > (Sign Out)</a>
         </div>
       );
     }  

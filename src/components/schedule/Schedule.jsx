@@ -15,7 +15,11 @@ class Schedule extends React.Component {
         return ( <Redirect to='/home' />);
       }
       return (
+        <div>
+          <h1>my meetings</h1>
           <ScheduleTable/>
+        </div>
+ 
       );
     }  
   }
