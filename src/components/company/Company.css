@@ -13,7 +13,7 @@
   box-sizing: border-box;
 }
 
-:root{
+/* :root{
     --bg-color: #D8D8D8;
 }
 
@@ -27,7 +27,7 @@ body {
   color: #000;
   background-color: var(--bg-color);
   font-family: 'Maitree', serif;
-}
+} */
 
 h2{
     font-size: 3em;
@@ -50,7 +50,7 @@ h2{
     right: 0;
     width: 100%;
     height: 100%;
-    background: rgb(204, 202, 202);
+    background: rgb(57, 147, 221);
     animation: a-ltr-after 2s cubic-bezier(.77,0,.18,1) forwards;
     transform: translateX(-101%);
 }
@@ -62,7 +62,7 @@ h2{
     right: 0;
     width: 100%;
     height: 100%;
-    background: rgb(79, 80, 80);
+    background:rgb(57, 147, 221);
     animation: a-ltr-before 2s cubic-bezier(.77,0,.18,1) forwards;
     transform: translateX(0);
 }
