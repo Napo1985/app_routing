@@ -102,10 +102,7 @@ class App extends React.Component {
         <Navbar inputChanged ={this.inputChanged} checkOnRefresh = {this.checkOnRefresh} signIn={this.signIn} signOut={this.signOut} user={this.state.user} signInProp= {this.state.signIn} />
         <div className="container-fluid text-center background">    
           <div className="row content">
-            <div className="col-sm-1 sidenav">
-            {/* <div class="well">
-              <p>ADS</p>
-            </div>
+            {/* <div className="col-sm-1 sidenav">
             <div class="well">
               <p>ADS</p>
             </div>
@@ -114,10 +111,13 @@ class App extends React.Component {
             </div>
             <div class="well">
               <p>ADS</p>
+            </div>
+            <div class="well">
+              <p>ADS</p>
+            </div>
             </div> */}
-            </div>
 
-          <div className="col-sm-10 text-center "> 
+          <div className="col-sm-12 text-center main"> 
             <Switch>   
               {/* <Redirect exact from="/" ></Redirect>   */}
               <Redirect exact from='/' to='/Home' />
@@ -130,14 +130,14 @@ class App extends React.Component {
             </Switch>
           </div>
 
-          <div className="col-sm-1 sidenav ">
-            {/* <div class="well">
+          {/* <div className="col-sm-1 sidenav ">
+             <div class="well">
               <img src="https://i.pinimg.com/originals/d9/c7/5b/d9c75bdc08ceb24ca15a462c3eaa4a7f.gif" alt="ADS" width="20" height="30"></img>
             </div>
             <div class="well">
               <p>ADS</p>
-            </div> */}
-          </div>
+            </div> 
+          </div> */}
 
         </div>
       </div>

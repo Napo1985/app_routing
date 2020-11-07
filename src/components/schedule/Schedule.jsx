@@ -1,6 +1,7 @@
 import React from 'react';
 import{ Redirect} from "react-router-dom";
 import ScheduleTable from "./scheduleTable";
+import './Schedule.css';
 
 class Schedule extends React.Component {
     constructor(props){
@@ -14,7 +15,7 @@ class Schedule extends React.Component {
         return ( <Redirect to='/home' />);
       }
       return (
-        <ScheduleTable/>
+          <ScheduleTable/>
       );
     }  
   }

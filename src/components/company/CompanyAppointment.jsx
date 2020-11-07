@@ -40,7 +40,7 @@ class CompanyAppointment extends React.Component {
       let counter = htmlTableElement.length;
       return (
           <div>
-            {counter > 0 ? <ul >{htmlTableElement}</ul> :<h3>Sorry no available meeting :-(</h3>}
+            {counter > 0 ? <ul >{htmlTableElement}</ul> :<h3>Sorry no available meetings :-(</h3>}
           </div>
       );
     }  

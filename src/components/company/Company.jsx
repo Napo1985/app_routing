@@ -20,24 +20,27 @@ class Company extends React.Component {
       {
         if (Jdata[i]["company"].toLowerCase() === localStorageKey)
         {        
-          htmlRearCardElement.push(<div className="card-rear-text" key ={Jdata[i]["address"]} ><b>Address:</b>{Jdata[i]["address"]}</div >);
-          htmlRearCardElement.push(<div className="card-rear-text" key ={Jdata[i]["city"]}><b>City:</b>{Jdata[i]["city"]}</div >);
-          htmlRearCardElement.push(<div className="card-rear-text" key ={Jdata[i]["phone"]}><b>Phone:</b>{Jdata[i]["phone"]}</div >);
-          htmlRearCardElement.push(<div className="card-rear-text" key ={Jdata[i]["email"]}><b>Email:</b>{Jdata[i]["email"]}</div >);      
+          htmlRearCardElement.push(<span className="card-rear-text" key ={Jdata[i]["address"]} ><b>Address:</b>{Jdata[i]["address"]}</span >);
+          htmlRearCardElement.push(<span className="card-rear-text" key ={Jdata[i]["city"]}><b>City:</b>{Jdata[i]["city"]}</span >);
+          htmlRearCardElement.push(<span className="card-rear-text" key ={Jdata[i]["phone"]}><b>Phone:</b>{Jdata[i]["phone"]}</span >);
+          htmlRearCardElement.push(<span className="card-rear-text" key ={Jdata[i]["email"]}><b>Email:</b>{Jdata[i]["email"]}</span >);      
         }
       }
       return (
         <div>
+          <h1 className="threeD"> <b>{localStorageKey.charAt(0).toUpperCase() + localStorageKey.slice(1)}</b></h1>
 
           <div className="row">
-            <h1> <b>{localStorageKey.charAt(0).toUpperCase() + localStorageKey.slice(1)}</b></h1>
             <div className="col-sm-4">
-
-              {htmlRearCardElement}
-            
+            <h2 class="home-title">
+                 {htmlRearCardElement}
+              </h2>
+             
             </div>
             <div className="col-sm-8">
-              <h2 >Choose available meeting</h2>
+              <h2 >
+                <span>Choose available meeting</span>
+              </h2>
               <CompanyAppointment user = {this.props.user} companyName = {localStorageKey} timeTable = {readableJsonData}/>
 
             </div>
