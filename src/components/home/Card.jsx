@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+// import { Redirect } from 'react-router-dom';
 import { withRouter } from "react-router-dom";
 import './Card.css';
 
@@ -26,7 +26,7 @@ class Card extends React.Component {
         htmlRearCardElement.push(<div className="card-rear-text" key ={this.props.CardData["phone"]}><b>phone:</b>{this.props.CardData["phone"]}</div >);
         htmlRearCardElement.push(<div className="card-rear-text" key ={this.props.CardData["email"]}><b>email:</b>{this.props.CardData["email"]}</div >);
 
-        htmlCardContainerElement.push(  <div class="flip-card" onClick = {() => this.redirectLink(this.props.CardData)}>
+        htmlCardContainerElement.push(  <div key ={this.props.CardData["id"]} class="flip-card" onClick = {() => this.redirectLink(this.props.CardData)}>
                                             <div class="flip-card-inner">
                                                 <div class="flip-card-front ">{htmlFrontCardElement}</div>
                                                 <div class="flip-card-back ">{htmlRearCardElement}</div>

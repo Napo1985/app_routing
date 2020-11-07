@@ -69,14 +69,7 @@ li {
     .row.content {height:auto;} 
   }
 
-  .footer {
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
- }
- 
+
  #logo-image{
    width: 70px;
    height: 70px;

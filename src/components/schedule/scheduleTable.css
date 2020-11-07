@@ -35,17 +35,23 @@
   margin-left: 30%;
   width: 400px;
   display: block;
-  border: 2px solid black;
+  border: 2px outset whitesmoke;
   margin-top: 10px; /* Prevent double borders */
   padding: 12px;
   text-align: left;
   
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+
+  box-shadow: 0 0 1px rgb(0, 0, 0);
   -webkit-transition-duration: 0.5s;
   transition-duration: 0.5s;
+}
+
+.li-meeting:hover{
+  background-color:rgba(14, 17, 177, 0.486); ;
 }
 .li-btn{
   float: right;
 }
+

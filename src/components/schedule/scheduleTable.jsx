@@ -15,7 +15,7 @@ class ScheduleTable extends React.Component {
       let userTable = JSON.parse(localStorage.getItem(localStorage.getItem("user")));
       
       for( var i = 0; i < userTable.length; i++){ 
-        if ( userTable[i]["companyName"] == company && userTable[i]["key"] == hour) { 
+        if ( userTable[i]["companyName"] === company && userTable[i]["key"] === hour) { 
           userTable.splice(i, 1); 
         }
       }
@@ -50,7 +50,7 @@ class ScheduleTable extends React.Component {
       renderData();
       htmlContainerElement.push(<ul  >{htmlTableElement}</ul>);
       return (
-        <div>{htmlTableElement}</div>
+        <div >{htmlTableElement}</div>
       );
     }
   }  

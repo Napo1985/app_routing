@@ -1,11 +1,5 @@
 import React from 'react';
-import{ 
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-  Link
-} from "react-router-dom";
+import{ Redirect} from "react-router-dom";
 import ScheduleTable from "./scheduleTable";
 
 class Schedule extends React.Component {
@@ -16,7 +10,7 @@ class Schedule extends React.Component {
     
     render() {
       console.log(this.state.currentUser)
-      if (this.state.currentUser == null || this.state.currentUser === "" || this.state.currentUser == undefined){
+      if (this.state.currentUser == null || this.state.currentUser === "" || this.state.currentUser === undefined){
         return ( <Redirect to='/home' />);
       }
       return (

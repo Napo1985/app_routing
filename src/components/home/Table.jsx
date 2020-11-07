@@ -3,9 +3,9 @@ import Card from "./Card";
 
 class Table extends React.Component {    
 
-    constructor(props) {
-        super(props);        
-    }
+    // constructor(props) {
+    //     super(props);        
+    // }
    
     render() {
         // console.log(this.props)

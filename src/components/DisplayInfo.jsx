@@ -7,9 +7,9 @@ const subPages = {
 }
 
 class DisplayInfo extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
     render() {
         return <h1>{subPages[this.props.match.params.whatToPass]}</h1>;
     }

@@ -30,17 +30,18 @@ class CompanyAppointment extends React.Component {
       let htmlTableElement = [];
 
       for (var key in this.props.timeTable) {
-        if (this.props.timeTable[key] == false){
+        if (this.props.timeTable[key] === false){
           let currentKey = key ;
-          let disabled1 = localStorage.getItem("user") === "" ||  localStorage.getItem("user") == null ? true : false;
-          htmlTableElement.push(<button disabled = {disabled1} className="setApBtn" key= {currentKey} onClick = {() => this.setTime(currentKey)} > {currentKey} </button> ) ;
+          let disabledBtn = localStorage.getItem("user") === "" ||  localStorage.getItem("user") == null ? true : false;
+          htmlTableElement.push(<button disabled = {disabledBtn} className="setApBtn" key= {currentKey} onClick = {() => this.setTime(currentKey)} > {currentKey} </button>) ;
         }  
         // console.log(key, this.props.timeTable[key]);
       }
+      let counter = htmlTableElement.length;
       return (
-        <div>
-          <div> {htmlTableElement}</div>
-        </div>
+          <div>
+            {counter > 0 ? <ul >{htmlTableElement}</ul> :<h3>Sorry no available meeting :-(</h3>}
+          </div>
       );
     }  
   }
