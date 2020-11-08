@@ -50,7 +50,7 @@ class ScheduleTable extends React.Component {
       renderData();
       htmlContainerElement.push(<ul  >{htmlTableElement}</ul>);
       return (
-        <div >{htmlTableElement}</div>
+        <div className="meeting-list">{htmlTableElement}</div>
       );
     }
   }  

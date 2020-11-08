@@ -32,7 +32,6 @@
 
 .li-meeting {
   overflow: hidden;
-  margin-left: 30%;
   width: 400px;
   display: block;
   border: 2px outset whitesmoke;
@@ -55,3 +54,8 @@
   float: right;
 }
 
+.meeting-list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
