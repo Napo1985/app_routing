@@ -18,7 +18,7 @@ class Navbar extends React.Component {
              <nav className="navbar navbar-inverse">
               <div className="container-fluid">
               <div className="navbar-header">
-                <img src="http://getdrawings.com/free-icon/schedule-appointment-icon-73.png" alt="Logo" id="logo-image" />
+                <img src="./src/images/icon.png" alt="Logo" id="logo-image" />
                     <button type="button" className="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
