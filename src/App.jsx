@@ -120,7 +120,6 @@ class App extends React.Component {
           <div className="col-sm-12 text-center main"> 
             <Switch>   
               <Redirect exact from='/' to='/home' />
-              <Redirect exact from='/home' to='/home' />
               <Route exact path="/Company/:companyName" user = {this.state.user} render={({ match }) => <Company match={match} />}/>
               <Route path="/schedule"> <Schedule /> </Route>
               <Route path="/home"> <Home user = {this.state.user} /> </Route>
