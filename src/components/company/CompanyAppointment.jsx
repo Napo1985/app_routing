@@ -35,7 +35,6 @@ class CompanyAppointment extends React.Component {
           let disabledBtn = localStorage.getItem("user") === "" ||  localStorage.getItem("user") == null ? true : false;
           htmlTableElement.push(<button disabled = {disabledBtn} className="setApBtn" key= {currentKey} onClick = {() => this.setTime(currentKey)} > {currentKey} </button>) ;
         }  
-        // console.log(key, this.props.timeTable[key]);
       }
       let counter = htmlTableElement.length;
       return (

@@ -8,7 +8,6 @@ class Table extends React.Component {
     // }
    
     render() {
-        // console.log(this.props)
         let htmlTableElement = [];  
 
         const renderData = () => {

@@ -10,7 +10,6 @@ class Schedule extends React.Component {
     }
     
     render() {
-      console.log(this.state.currentUser)
       if (this.state.currentUser == null || this.state.currentUser === "" || this.state.currentUser === undefined){
         return ( <Redirect to='/home' />);
       }

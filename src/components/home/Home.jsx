@@ -23,7 +23,6 @@ class Home extends React.Component {
     }
     
     render() {
-      console.log(this.props);
       if (!this.state.jsonData){
         return<h1>Loading...</h1>
       }

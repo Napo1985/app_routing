@@ -9,11 +9,8 @@ class Company extends React.Component {
     // }
     
     render() {
-      console.log(this.props);
       let localStorageKey = this.props.match.params.companyName.toLowerCase();
       let readableJsonData = JSON.parse(localStorage.getItem(localStorageKey)); 
-      console.log(readableJsonData); 
-
       let htmlRearCardElement = [];
       let Jdata = JSON.parse(localStorage.getItem("jsonFile"));
       for (const i in Jdata)
